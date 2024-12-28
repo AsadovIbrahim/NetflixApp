@@ -3,10 +3,15 @@ import { FlatList,Dimensions, ImageBackground, TouchableOpacity } from "react-na
 import { Image } from "react-native";
 import { Text } from "react-native";
 import { View } from "react-native";
+import { useTranslation } from "react-i18next";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
- 
-const Onboarding = () => {
+import { useMMKVString } from "react-native-mmkv";
 
+const Onboarding = () => {
+  const[selectedLanguage,setSelectedLanguage]=
+  useMMKVString('selectedLanguage')
+
+  const {t} = useTranslation();
   const [activeIndex,setActiveIndex]=useState(0)
   const [fail,setFail]=useState(false) 
   const navigation = useNavigation()
@@ -14,23 +19,23 @@ const Onboarding = () => {
   const onboardingItems = [
     {
         image: require("../../../assets/images/laptop.png"),
-        title: "Watch on any device",
-        desc: "Stream on your phone, tablet, laptop and TV without playing more"
+        title: t('watchAnyDevice'),
+        desc: t('streamAnywhere'),
     },
     {
         image: require("../../../assets/images/download.png"),
-        title: "3, 2, 1,... download!",
-        desc: "Always have something to Watch offline."
+        title: t('download'),
+        desc: t('watchOffline'),
     },
     {
         image: require("../../../assets/images/population.png"),
-        title: "No pesky contracts.",
-        desc: "cancel anytime"
+        title: t('noContracts'),
+        desc: t('cancelAnytime')
     },
     {
         image: require("../../../assets/images/avengers.png"),
-        title: "How do I watch?",
-        desc: "Members that subscribe to Netflix can watch here in the app"
+        title: t('howDoIWatch'),
+        desc: t('membersSubscribe')
     },
  
   ]
@@ -49,7 +54,7 @@ const Onboarding = () => {
  
   const Dot=({index})=>{
     return (
-      <View className={`size-[10px] ${activeIndex===index?"bg-red-600":"bg-white"}`}></View>
+      <View className={`size-[10px] rounded-full ${activeIndex===index?"bg-red-600":"bg-white"}`}></View>
     )
   }
  
@@ -57,13 +62,17 @@ const Onboarding = () => {
   const findIndex=({viewableItems})=>{
     setActiveIndex(viewableItems[0].index)
   }
+
+  const handleLanguage=()=>{
+    setSelectedLanguage(prevState=>prevState==="en" ? "ru" : "en");
+  }
  
   return (
     <ImageBackground className="flex-1 bg-black" {...(activeIndex===3?{source:onboardingItems[3].image}:{})}>
       <View className="w-full items-center relative mt-[40px] mb-[70px]">
         {/* <NetflixIcon/> */}
-        <TouchableOpacity className="absolute right-7 top-3">
-          <Text className="text-white">Help</Text>
+        <TouchableOpacity onPress={handleLanguage} className="absolute right-7 top-3">
+          <Text className="text-white">{t('language')}</Text>
         </TouchableOpacity>
       </View>
  
@@ -80,7 +89,7 @@ const Onboarding = () => {
    
         <TouchableOpacity className="bg-[#E50914] py-4 mx-5 mt-10 mb-5" onPress={() => navigation.navigate("Login")}>
           <Text className="text-center text-white font-bold text-xl">
-            Get Started
+            {t('getStarted')}
           </Text>
         </TouchableOpacity>
  
