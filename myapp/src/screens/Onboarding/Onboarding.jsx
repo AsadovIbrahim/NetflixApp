@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { FlatList,Dimensions, ImageBackground, TouchableOpacity } from "react-native";
+import { FlatList,ImageBackground, TouchableOpacity } from "react-native";
 import { Image } from "react-native";
 import { Text } from "react-native";
 import { View } from "react-native";
 import { useTranslation } from "react-i18next";
-import { NavigationContainer, useNavigation } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 import { useMMKVString } from "react-native-mmkv";
+
 
 const Onboarding = () => {
   const[selectedLanguage,setSelectedLanguage]=
@@ -87,7 +88,7 @@ const Onboarding = () => {
       </View>
  
    
-        <TouchableOpacity className="bg-[#E50914] py-4 mx-5 mt-10 mb-5" onPress={() => navigation.navigate("Login")}>
+        <TouchableOpacity  className="bg-[#E50914] py-4 mx-5 mt-10 mb-5" onPress={() => navigation.navigate("Login")}>
           <Text className="text-center text-white font-bold text-xl">
             {t('getStarted')}
           </Text>

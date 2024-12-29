@@ -3,18 +3,19 @@ import AuthStack from './AuthStack';
 import { useEffect } from 'react';
 import { useMMKVString,useMMKVBoolean } from 'react-native-mmkv';
 import Onboarding from '../screens/Onboarding/Onboarding';
+import { Text } from 'react-native';
+import { View } from 'react-native';
+import TabBar from './components/TabBar';
+import TabStack from './TabStack';
+import Login from '../screens/auth/login/Login';
 
 const Navigation = () => {
 
-  const [accessToken, setAccessToken] = useMMKVString('accessToken')
-  const [firstTimeUser, setFirstTimeUser] = useMMKVBoolean("firstTimeUser")
-  useEffect(() => {
-        setFirstTimeUser(true);
-    }, [1])
+  const [token, setToken] = useMMKVString('token')
+ 
   return (
-    firstTimeUser?<NavigationContainer><Onboarding/></NavigationContainer>:
     <NavigationContainer>
-      {accessToken?<View></View>:<AuthStack></AuthStack>}
+      {token?<TabStack></TabStack>:<AuthStack></AuthStack>}
     </NavigationContainer>
   )
 }

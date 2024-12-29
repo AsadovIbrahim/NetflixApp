@@ -4,6 +4,9 @@ import { useTranslation } from 'react-i18next';
 import Navigation from './src/stacks/Navigation';
 import { useEffect } from 'react';
 import "./src/locales/index";
+import { enableScreens } from 'react-native-screens';
+enableScreens();
+ 
 import { useMMKVString } from 'react-native-mmkv';
 
 const App = () => {
@@ -19,7 +22,7 @@ const App = () => {
 
   return (
     <SafeAreaProvider>
-      <SafeAreaView style={{ flex: 1 }}>
+      <SafeAreaView style={{ flex:1}}>
         <Navigation/>
       </SafeAreaView>
     </SafeAreaProvider>

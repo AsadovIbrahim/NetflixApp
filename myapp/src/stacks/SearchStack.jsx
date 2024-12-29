@@ -1,14 +1,14 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Profile from '../screens/profile/Profile';
+import Search from '../screens/search/Search';
 
 const Stack = createNativeStackNavigator()
 
-const ProfileStack = () => {
+const SearchStack = () => {
     return (
         <Stack.Navigator>
-            <Stack.Screen name="ProfileScreen" component={Profile} />
+            <Stack.Screen name="SearchScreen" component={Search} />
         </Stack.Navigator>
     )
 }
 
-export default ProfileStack
+export default SearchStack;
