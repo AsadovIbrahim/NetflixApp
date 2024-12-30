@@ -3,7 +3,7 @@ import "./global.css"
 import { useTranslation } from 'react-i18next';
 import Navigation from './src/stacks/Navigation';
 import { useEffect } from 'react';
-import "./src/locales/index";
+import "@locales/index";
 import { enableScreens } from 'react-native-screens';
 enableScreens();
  

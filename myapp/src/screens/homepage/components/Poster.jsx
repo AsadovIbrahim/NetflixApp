@@ -33,12 +33,12 @@ const Poster = () => {
     />
         <View className='w-full p-[14px] absolute bottom-0 left-0 flex-row gap-10 justify-between items-center'>
             <TouchableOpacity className='bg-white w-[45%] py-[10px] rounded-[6px]'>
-                <Text className='text-[#191B1E] text-xl font-extrabold text-center'>Play</Text>
+                <Text className='text-[#191B1E] text-xl font-manropeBold text-center'>Play</Text>
             </TouchableOpacity>
 
             
             <TouchableOpacity className='bg-[#2E2B2F] w-[45%] py-[10px] rounded-[6px]'>
-                <Text className='text-white text-xl font-extrabold text-center'>+ My List</Text>
+                <Text className='text-white text-xl font-manropeBold text-center'>+ My List</Text>
             </TouchableOpacity>
 
 

@@ -1,10 +1,10 @@
 import { View, TouchableOpacity, Text } from 'react-native';
-import HomeActive from "../../../assets/icons/homeActive.svg"
-import HomeInactive from "../../../assets/icons/homeInactive.svg"
-import ProfilActive from "../../../assets/icons/profileActive.svg"
-import ProfilInactive from "../../../assets/icons/profileInactive.svg"
-import SearchActive from "../../../assets/icons/searchActive.svg"
-import SearchInactive from "../../../assets/icons/searchInactive.svg"
+import HomeActive from "@icons/homeActive.svg"
+import HomeInactive from "@icons/homeInactive.svg"
+import ProfilActive from "@icons/profileActive.svg"
+import ProfilInactive from "@icons/profileInactive.svg"
+import SearchActive from "@icons/searchActive.svg"
+import SearchInactive from "@icons/searchInactive.svg"
 
 const TabBar = ({ state, descriptors, navigation }) => {
 

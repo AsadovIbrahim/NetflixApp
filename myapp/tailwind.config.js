@@ -4,7 +4,15 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}","./App.tsx"],
   presets: [require("nativewind/preset")],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily:{
+        manrope:"Manrope-Regular",
+        manropeLight:"Manrope-Light",
+        manropeBold:"Manrope-Bold",
+        manropeMedium:"Manrope-Medium",
+        manropeSemibold:"Manrope-SemiBold",
+      }
+    },
   },
   plugins: [],
 }

@@ -1,7 +1,7 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Login from '../screens/auth/login/Login';
-import Register from '../screens/auth/register/Register';
-import Onboarding from '../screens/Onboarding/Onboarding';
+import Login from '@screens/auth/login/Login';
+import Register from '@screens/auth/register/Register';
+import Onboarding from '@screens/Onboarding/Onboarding';
 import { useMMKVBoolean } from 'react-native-mmkv';
 import { useEffect } from 'react';
 const Stack = createNativeStackNavigator();

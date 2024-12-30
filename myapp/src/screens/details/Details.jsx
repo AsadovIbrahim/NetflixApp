@@ -5,7 +5,7 @@ import { Button, Alert,Text,View, ScrollView, TouchableOpacity } from "react-nat
 import { useMMKVString } from 'react-native-mmkv';
 import YoutubePlayer from "react-native-youtube-iframe";
 import Similar from './components/Similar';
-import Play from '../../../assets/icons/play.svg';
+import Play from '@icons/play.svg';
 
 const Details = () => {
     const [viewMore,setViewMore]=useState(false);

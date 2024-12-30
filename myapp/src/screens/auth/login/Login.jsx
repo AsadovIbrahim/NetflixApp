@@ -1,7 +1,7 @@
 import { Text, View, TextInput, TouchableOpacity, Alert } from 'react-native'
 import { useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
-import { storage } from '../../../utils/MMKVStore'
+import { storage } from '@utils/MMKVStore'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 

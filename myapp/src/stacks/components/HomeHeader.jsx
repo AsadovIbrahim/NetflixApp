@@ -1,7 +1,7 @@
 import { View, Text, TouchableOpacity } from 'react-native'
 import React from 'react'
-import ScreenCast from "../../../assets/icons/screencast.svg"
-import Search from "../../../assets/icons/search.svg"
+import ScreenCast from "@icons/screencast.svg"
+import Search from "@icons/search.svg"
 
 const HomeHeader = () => {
   return (

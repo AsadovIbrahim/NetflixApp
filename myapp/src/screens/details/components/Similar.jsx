@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useMMKVString } from 'react-native-mmkv';
-import { Text, View, FlatList, SectionList, Dimensions } from 'react-native'
-import MovieCard from '../../homepage/components/MovieCard'
+import { Text, View, FlatList} from 'react-native'
+import ContentCard from '@common/ContentCard.jsx';
 
 const Similar = ({id,type}) => {
     const [data, setData] = useState([])
@@ -42,7 +42,7 @@ const Similar = ({id,type}) => {
         ListEmptyComponent={NoItems}
         contentContainerStyle={{ gap: 8}}
         data={data}
-        renderItem={({ item }) => <MovieCard item={item} />} />
+        renderItem={({ item }) => <ContentCard item={item} type={type}/>} />
     </View>
     
     </>
