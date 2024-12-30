@@ -1,10 +1,15 @@
 import { TouchableOpacity} from 'react-native'
 import FastImage from 'react-native-fast-image'
+import { useNavigation } from '@react-navigation/native'
 
 const MovieCard = ({ item }) => {
 
+  const navigation=useNavigation()
+
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={()=>{
+      navigation.navigate("Details",{id:item.id,type:item.media_type})
+    }}>
       <FastImage
         style={{ width: 125, height: 175 }}
         source={{
