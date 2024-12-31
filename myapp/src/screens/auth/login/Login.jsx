@@ -26,12 +26,10 @@ const Login = () => {
           body: JSON.stringify(formData)
         })
    
-        const data = await response.json()
-   
-        console.log(data)
-   
+        const data = await response.json()   
         if (response.ok) {
           storage.set("token", data.token);
+          storage.set("firstname", data.user.firstname);
         } else {
           Alert.alert("Error", data.message);
         }
@@ -42,9 +40,6 @@ const Login = () => {
     }
    
     return (
-     
-     
-     
       <KeyboardAwareScrollView keyboardShouldPersistTaps="handled" contentContainerClassName='flex-1 justify-center' className='bg-[#141115]'>
         <View className='p-6 gap-4 bg-[#141115] relative'>
           <TextInput onChangeText={text=>{
@@ -57,7 +52,7 @@ const Login = () => {
           }} placeholder='Password' placeholderTextColor="#767676" className='border h-[52] bg-[#353236] pl-3' style={{color:"white"}}>
           </TextInput>
          
-          <TouchableOpacity onPress={(login)} className='bg-[#E50A14] py-5 rounded-lg'><Text className='text-white text-center font-bold text-xl'>Sign In</Text></TouchableOpacity>
+          <TouchableOpacity onPress={(login)} className='bg-[#E50A14] py-5 rounded-lg font-manropeBold text-lg'><Text className='text-white text-center font-bold text-xl'>Sign In</Text></TouchableOpacity>
           <TouchableOpacity onPress={() => {navigation.navigate("Register")}}><Text className='text-gray-400 text-center mt-4'>Don't have an account? Sign up</Text></TouchableOpacity>
    
         </View>

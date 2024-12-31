@@ -6,11 +6,11 @@ import { useMMKVString } from 'react-native-mmkv'
 
 const HomeHeader = () => {
 
-  const [username,setUsername]=useMMKVString("username");
+  const [firstname]=useMMKVString("firstname");
 
   return (
     <View className='w-full flex-row justify-between items-center p-2 py-2 bg-black'>
-      <Text className='text-white font-extrabold text-3xl'>Welcome {username}</Text>
+      <Text className='text-white font-extrabold text-3xl'>Welcome {firstname?firstname:"Guest"}</Text>
 
       <View className='flex-row items-center gap-4'>
       <TouchableOpacity>

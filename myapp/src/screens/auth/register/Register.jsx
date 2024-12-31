@@ -28,7 +28,8 @@ const Register = () => {
             })
             const data = await response.json()
             if (response.ok) {
-                storage.set("username", data.user.username);
+                storage.set("firstname", data.user.firstname);
+                storage.set("lastname", data.user.lastname);
                 navigation.navigate("Login");
             } else {
                 Alert.alert("Error", data.message || "An error occurred");
@@ -40,26 +41,34 @@ const Register = () => {
     }
 
     return (
-        <KeyboardAwareScrollView>
-            <View className='flex-1 p-5 gap-4 pt-[450px]'>
+        <KeyboardAwareScrollView keyboardShouldPersistTaps="handled" contentContainerClassName='flex-1 justify-center' className='bg-[#141115]'>
+            <View className='flex-1 p-5 gap-4 pt-[200px]'>
                 
                 <TextInput onChangeText={(text) => {
+                    handleInputChange("firstname", text)
+                }} placeholder='Enter your fistname' placeholderTextColor="#767676" className='border h-[52] bg-[#353236] pl-3' style={{color:"white"}} />
+              
+                <TextInput onChangeText={(text) => {
+                    handleInputChange("lastname", text)
+                }} placeholderTextColor="#767676" className='border h-[52] bg-[#353236] pl-3' style={{color:"white"}}  placeholder='Enter your lastname'  />
+               
+                <TextInput onChangeText={(text) => {
                     handleInputChange("email", text)
-                }} placeholderTextColor="#767676" placeholder='Enter your email' className='p-3 text-black border border-zinc-400 bg-white rounded-lg' />
+                }} placeholderTextColor="#767676" className='border h-[52] bg-[#353236] pl-3' style={{color:"white"}}  placeholder='Enter your email'  />
              
                 <TextInput onChangeText={(text) => {
                     handleInputChange("username", text)
-                }} placeholderTextColor="#767676" placeholder='Enter your username' className='p-3 text-black border border-zinc-400 bg-white rounded-lg' />
+                }} placeholderTextColor="#767676" className='border h-[52] bg-[#353236] pl-3' style={{color:"white"}}  placeholder='Enter your username'/>
 
                 <TextInput onChangeText={(text) => {
                     handleInputChange("password", text)
-                }} placeholderTextColor="#767676" placeholder='Enter your password' className='p-3 text-black border border-zinc-400 bg-white rounded-lg' />
+                }}placeholderTextColor="#767676" className='border h-[52] bg-[#353236] pl-3' style={{color:"white"}}  placeholder='Enter your password'  />
 
-                <TouchableOpacity onPress={register} className='bg-violet-600 py-5 rounded-lg'><Text className='text-white text-center'>Register</Text></TouchableOpacity>
+                <TouchableOpacity onPress={register} className='bg-[#E50A14] py-5 rounded-lg'><Text className='text-white text-center font-manropeBold text-lg'>Register</Text></TouchableOpacity>
 
                 <TouchableOpacity onPress={() => {
                     navigation.navigate("Login")
-                }}><Text className='text-black text-center mt-4'>Already have an account?</Text></TouchableOpacity>
+                }}><Text className='text-white text-center mt-4'>Already have an account?</Text></TouchableOpacity>
             </View>
         </KeyboardAwareScrollView>
 
