@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react'
 import { Text, View, FlatList, SectionList, Dimensions } from 'react-native'
 import ContentCard from '@common/ContentCard.jsx'
-
+import { useTranslation } from 'react-i18next'
 
 const ContentList = ({searchTerm,type}) => {
 
   const [data, setData] = useState([])
+  const { t } = useTranslation();
 
   const getData = async () => {
     try {
@@ -30,7 +31,7 @@ const ContentList = ({searchTerm,type}) => {
     <>
     <View className='mt-6'>
 
-      <Text className='font-manropeBold text-white text-2xl ml-2 mb-2'>{searchTerm?"Results for"+` ${type==="tv"?"Shows":"Movies"}`:type==="movie" ?"Trending Movies":"Trending TV Shows"}</Text>
+      <Text className='font-manropeBold text-white text-2xl ml-2 mb-2'>{searchTerm?"Results for"+` ${type==="tv"?"Shows":"Movies"}`:type==="movie" ?`${t("trendingMovies")}`:`${t("trendingShows")}`}</Text>
       <FlatList
         horizontal
         showsHorizontalScrollIndicator={false}

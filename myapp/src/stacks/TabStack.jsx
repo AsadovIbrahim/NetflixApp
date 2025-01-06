@@ -3,10 +3,13 @@ import ProfileStack from './ProfileStack';
 import HomeStack from './HomeStack';
 import TabBar from './components/TabBar';
 import SearchStack from './SearchStack';
+import { useTranslation } from 'react-i18next';
 
 const Tab = createBottomTabNavigator();
 
 const TabStack = () => {
+  const {t}=useTranslation();
+
   return (
     <Tab.Navigator
       tabBar={

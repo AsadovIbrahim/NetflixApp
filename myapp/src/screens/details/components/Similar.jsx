@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react'
 import { useMMKVString } from 'react-native-mmkv';
 import { Text, View, FlatList} from 'react-native'
+import { useTranslation } from 'react-i18next';
 import ContentCard from '@common/ContentCard.jsx';
 
 const Similar = ({id,type}) => {
+    const{t}=useTranslation();
     const [data, setData] = useState([])
     const {token,setToken}=useMMKVString("token");
   
@@ -35,7 +37,7 @@ const Similar = ({id,type}) => {
   return (
     <>
     <View className='mt-6'>
-      <Text className='font-extrabold text-white text-xl mb-3'>Similar {type==="movie"?"Movies":"TV Shows"}</Text>
+      <Text className='font-extrabold text-white text-xl mb-3'>{t("similar")} {type==="movie"?`${t("movies")}`:`${t("tvShows")}`}</Text>
       <FlatList
         horizontal
         showsHorizontalScrollIndicator={false}

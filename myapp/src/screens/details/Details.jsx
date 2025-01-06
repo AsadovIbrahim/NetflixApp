@@ -6,8 +6,10 @@ import { useMMKVString } from 'react-native-mmkv';
 import YoutubePlayer from "react-native-youtube-iframe";
 import Similar from './components/Similar';
 import Play from '@icons/play.svg';
+import { useTranslation } from 'react-i18next';
 
 const Details = () => {
+    const {t}=useTranslation();
     const [viewMore,setViewMore]=useState(false);
     const [playing,setPlaying]=useState(false);
     const {token,setToken}=useMMKVString("token");
@@ -79,7 +81,7 @@ const Details = () => {
         <Text className='text-white text-3xl font-extrabold mb-2 mt-3'>{type==="tv"?data.name:data.title}</Text>
         <TouchableOpacity className="rounded-[4px] my-3 flex-row justify-center bg-white py-4 items-center gap-2" onPress={togglePlaying}>
             <Play/>
-            <Text className=' text-black font-extrabold text-lg'>Play</Text>
+            <Text className=' text-black font-extrabold text-lg'>{t("play")}</Text>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={()=>{

@@ -5,6 +5,7 @@ import { Text } from "react-native";
 import { View } from "react-native";
 import { useTranslation } from "react-i18next";
 import { useNavigation } from "@react-navigation/native";
+import NetflixIcon from "@images/netflix-logo.png";
 import { useMMKVString } from "react-native-mmkv";
 
 const Onboarding = () => {
@@ -68,13 +69,14 @@ const Onboarding = () => {
   };
 
   return (
+    <>
     <ImageBackground
       className="flex-1 bg-black"
       {...(activeIndex === 3 ? { source: onboardingItems[3].image } : {})}
     >
+    <Image source={NetflixIcon} className="bg-black m-auto mt-9"/>
       <View className="w-full items-center relative mt-[40px] mb-[70px]">
-        {/* <NetflixIcon/> */}
-        <TouchableOpacity onPress={handleLanguage} className="absolute right-7 top-3">
+        <TouchableOpacity onPress={handleLanguage} className="absolute bottom-14 right-7">
           <Text className="text-white">{t("language")}</Text>
         </TouchableOpacity>
       </View>
@@ -111,6 +113,7 @@ const Onboarding = () => {
         </Text>
       </TouchableOpacity>
     </ImageBackground>
+    </>
   );
 };
 
